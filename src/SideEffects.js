@@ -13,6 +13,13 @@ export const SideEffects = () => {
   // TODO: Create a side effect that updates statusEmoji based on the
   // username's length with respect to MIN_CHARS and MAX_CHARS.
   let statusEmoji = '';
+  const isTuff = username.length> MIN_CHARS && username.length<MAX_CHARS;
+  if (isTuff){
+    statusEmoji = '😤💪'
+  }else{
+    statusEmoji = '😥'
+  }
+
 
   return (
     <>
@@ -22,7 +29,7 @@ export const SideEffects = () => {
       <div>
         <input
           id="username"
-          class="form-control"
+          className="form-control"
           onChange={onChange}
           value={username}
         />
@@ -30,7 +37,7 @@ export const SideEffects = () => {
       </div>
 
       {/* TODO: Show how many characters the username has. */}
-      <small>char count:</small>
+      <small>char count:{username.length}</small>
     </>
   );
 };
